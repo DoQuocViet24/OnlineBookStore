@@ -48,10 +48,10 @@ public class MailConstructor {
             @Override
             public void prepare(javax.mail.internet.MimeMessage mimeMessage) throws Exception {
                 MimeMessageHelper email = new MimeMessageHelper(mimeMessage);
-                email.setText(user.getEmail());
+                email.setTo(user.getEmail());
                 email.setSubject("Order Confirmation - " + order.getId());
                 email.setText(text, true);
-                email.setFrom(new InternetAddress("ray.deng83@gmail.com"));
+                email.setFrom(new InternetAddress("doquocvietmt@gmail.com"));
             }
         };
     }

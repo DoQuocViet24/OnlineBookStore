@@ -10,7 +10,7 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <h2 class="section-headline"><span>User Account</span></h2>
+            <h2 class="section-headline"><span th:text="${#strings.toUpperCase(user.username)}"></span></h2>
         </div>
         <div class="col-4">
             <img src="/image/logo.png" class="img-fluid"/>
@@ -280,7 +280,7 @@
                                         <div class="col-5">
                                             <div class="form-group">
                                                 <label for="cardCVC">CV code</label>
-                                                <input id="cardCVC" type="tel" class="form-control" name="cvc"
+                                                <input id="cardCVC" type="number" class="form-control" name="cvc"
                                                        placeholder="CVC" th:name="cvc"
                                                        th:value="${payment.cvc}"/>
                                             </div>

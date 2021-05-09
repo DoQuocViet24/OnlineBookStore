@@ -66,7 +66,7 @@ public class CheckoutController {
             Model model, Principal principal
     ) {
         User user = userService.findByUsername(principal.getName());
-
+         model.addAttribute(user);
         if(cartId != user.getShoppingCart().getId()) {
             return "badRequestPage";
         }
@@ -175,10 +175,10 @@ public class CheckoutController {
                 billingAddress.getBillingAddressName().isEmpty() ||
                 billingAddress.getBillingAddressZipcode().isEmpty()
                 )
-            return "redirect:/checkout?id"+shoppingCart.getId()+"&missingRequiredField=true";
+            return "redirect:/checkout?id="+shoppingCart.getId()+"&missingRequiredField=true";
 
         User user = userService.findByUsername(principal.getName());
-
+        model.addAttribute(user);
         Order order = orderService.createOrder(shoppingCart, shippingAddress, billingAddress, payment, shippingMethod, user);
 
         mailSender.send(mailConstructor.constructOrderConfirmationEmail(user, order, Locale.ENGLISH));
@@ -251,6 +251,7 @@ public class CheckoutController {
             @RequestParam("userPaymentId") Long userPaymentId,
             Principal principal, Model model
     ) {
+    	 System.out.println("setPaymentMethod");
         User user = userService.findByUsername(principal.getName());
         UserPayment userPayment = userPaymentService.findById(userPaymentId);
         UserBilling userBilling = userPayment.getUserBilling();
