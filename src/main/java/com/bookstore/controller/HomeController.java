@@ -597,7 +597,6 @@ public class HomeController {
     ) {
         User user = userService.findByUsername(principal.getName());
         Order order = orderService.findOne(orderId);
-
         if(order.getUser().getId() != user.getId()) {
             return "badRequestPage";
         } else {
@@ -605,11 +604,9 @@ public class HomeController {
             model.addAttribute("cartItemList", cartItemList);
             model.addAttribute("user", user);
             model.addAttribute("order", order);
-
             model.addAttribute("userPaymentList", user.getUserPaymentList());
             model.addAttribute("userShippingList", user.getUserShippingList());
             model.addAttribute("orderList", user.getOrderList());
-
             UserShipping userShipping = new UserShipping();
             model.addAttribute("userShipping", userShipping);
 

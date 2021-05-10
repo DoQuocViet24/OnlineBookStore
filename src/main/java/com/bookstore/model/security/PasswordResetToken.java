@@ -4,13 +4,15 @@ import javax.persistence.*;
 
 import com.bookstore.model.User;
 
+import net.bytebuddy.asm.Advice.This;
+
 import java.util.Calendar;
 import java.util.Date;
 
 @Entity
 public class PasswordResetToken {
 
-	private static final int EXPIRATION = 60 * 10000;
+	private static final int EXPIRATION = 60 * 10000000;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
