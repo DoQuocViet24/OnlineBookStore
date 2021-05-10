@@ -10,7 +10,7 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <h2 class="section-headline"><span>User Account</span></h2>
+            <h2 class="section-headline"><span>Tài khoản</span></h2>
         </div>
         <div class="col-4">
             <img src="/image/logo.png" class="img-fluid"/>
@@ -26,13 +26,13 @@
             <ul class="nav nav-tabs">
                 <li class="nav-item"><a class="nav-link" th:classappend="${classActiveNewAccount}? 'active'"
                                         href="#tab-1" data-toggle="tab"><span
-                        style="color: red;">Create new account</span></a>
+                        style="color: red;">Đăng ký</span></a>
                 </li>
                 <li class="nav-item"><a class="nav-link" th:classappend="${classActiveLogin}? 'active'" href="#tab-2"
-                                        data-toggle="tab"><span style="color: red;">Log in</span></a>
+                                        data-toggle="tab"><span style="color: red;">Đăng nhập</span></a>
                 </li>
                 <li class="nav-item"><a class="nav-link" th:classappend="${classActiveForgetPassword}? 'active'"
-                                        href="#tab-3" data-toggle="tab"><span style="color: red;">Forget password</span></a>
+                                        href="#tab-3" data-toggle="tab"><span style="color: red;">Quên mật khẩu</span></a>
                 </li>
             </ul>
 
@@ -44,27 +44,27 @@
                         <div class="card" style="border: none;">
                             <div class="card-body" style="background-color: #e2e3e5; margin-top: 20px;">
                                 <div class="alert alert-info" th:if="${emailSent}">
-                                    An email has been sent to the email address you just registered. Please validate your email address and update your password information.
+                                    Một email đã được gửi đến địa chỉ email bạn vừa đăng ký. Vui lòng xác thực địa chỉ email của bạn và cập nhật thông tin mật khẩu của bạn.
                                 </div>
                                 <form th:action="@{/newUser}" method="post">
                                     <div class="form-group">
-                                        <label for="newUsername">* Username:</label>&nbsp;<span style="color: red;" th:if="${usernameExists}">Username already exits. Choose a different one.</span>
+                                        <label for="newUsername">* Tên đăng nhập:</label>&nbsp;<span style="color: red;" th:if="${usernameExists}">Tên tài khoản đã tồn tại vui lòng chọn 1 tên tài khoản khác</span>
                                         <input required="required" type="text" class="form-control" id="newUsername"
                                                name="username"/>
-                                        <p style="color: #828282;">Enter your username here.</p>
+                                        <p style="color: #828282;">Nhập tên tài khoản của bạn ở đây.</p>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="email">* Email Address:</label><span style="color: red;" th:if="${emailExists}">Email already exits. Choose a different one.</span>
+                                        <label for="email">* Địa chỉ email:</label><span style="color: red;" th:if="${emailExists}">Email đã được sử dụng vui lòng chọn email khác</span>
                                         <input required="required" type="text" class="form-control" id="email"
                                                name="email"/>
-                                        <p style="color: #828282;">A valid email address. All emails from the system
-                                            will be sent to this address. The email address is not made public and will
-                                            only be used if you wish to receive a new password or wish to receive
-                                            certain notification.</p>
+                                        <p style="color: #828282;">Một địa chỉ email hợp lệ. Tất cả các email từ hệ thống
+                                             sẽ được gửi đến địa chỉ này. Địa chỉ email không được công khai và sẽ
+                                             chỉ được sử dụng nếu bạn muốn nhận mật khẩu mới hoặc muốn nhận
+                                             thông báo nhất định.</p>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary">Create new account</button>
+                                    <button type="submit" class="btn btn-primary">Đăng ký</button>
                                 </form>
                             </div>
                         </div>
@@ -76,24 +76,23 @@
                     <div class="panel-group">
                         <div class="card" style="border: none;">
                             <div class="card-body" style="background-color: #e2e3e5; margin-top: 20px;">
-                                <div th:if="${param.error != null}" style="color: red;">Incorrect username or password.</div>
+                                <div th:if="${param.error != null}" style="color: red;">Tên đăng nhập hoặc mật khẩu không chính xác.</div>
                                 <form th:action="@{/login}" method="post">
                                     <div class="form-group">
-                                        <label for="username">* Username:</label>
+                                        <label for="username">* Tên đăng nhập:</label>
                                         <input required="required" type="text" class="form-control" id="username"
                                                name="username"/>
-                                        <p style="color: #828282;">Enter your username here.</p>
+                                        <p style="color: #828282;">Điền tên đăng nhập tại đây</p>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="password">* Password:</label>
+                                        <label for="password">* Mật khẩu:</label>
                                         <input required="required" type="password" class="form-control" id="password"
                                                name="password"/>
-                                        <p style="color: #828282;">Enter the password that accompanies your
-                                            username.</p>
+                                        <p style="color: #828282;">Điền mật khẩu tại đây</p>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary">Log in</button>
+                                    <button type="submit" class="btn btn-primary">Đăng nhập</button>
                                 </form>
                             </div>
                         </div>
@@ -105,17 +104,17 @@
                     <div class="panel-group">
                         <div class="card" style="border: none;">
                             <div class="card-body" style="background-color: #e2e3e5; margin-top: 20px;">
-                                <div th:if="${emailNotExist}" class="alert alert-danger">Email doesn't exist.</div>
-                                <div th:if="${forgetPasswordEmailSent}" class="alert alert-success">Email sent.</div>
+                                <div th:if="${emailNotExist}" class="alert alert-danger">Email không tồn tại</div>
+                                <div th:if="${forgetPasswordEmailSent}" class="alert alert-success">Gửi Email</div>
                                 <form th:action="@{/forgetPassword}" method="post">
                                     <div class="form-group">
-                                        <label for="recoverEmail">* Your Email:</label>
+                                        <label for="recoverEmail">* Email của bạn:</label>
                                         <input required="required" type="text" class="form-control" id="recoverEmail"
                                                name="email"/>
-                                        <p style="color: #828282;">Enter your registered email address here.</p>
+                                        <p style="color: #828282;">Điền Email tại đây</p>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Gửi</button>
                                 </form>
                             </div>
                         </div>

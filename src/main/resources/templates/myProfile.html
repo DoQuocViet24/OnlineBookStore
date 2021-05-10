@@ -27,16 +27,16 @@
             <!--Nav tabs-->
             <ul class="nav nav-tabs">
                 <li class="nav-item"><a class="nav-link" th:classappend="${classActiveEdit}? 'active'"
-                                        href="#tab-1" data-toggle="tab"><span style="color: red;">Edit</span></a>
+                                        href="#tab-1" data-toggle="tab"><span style="color: red;">Thay đổi</span></a>
                 </li>
                 <li class="nav-item"><a class="nav-link" th:classappend="${classActiveOrders}? 'active'"
-                                        href="#tab-2" data-toggle="tab"><span style="color: red;">Orders</span></a>
+                                        href="#tab-2" data-toggle="tab"><span style="color: red;">Đơn hàng</span></a>
                 </li>
                 <li class="nav-item"><a class="nav-link" th:classappend="${classActiveBilling}? 'active'"
-                                        href="#tab-3" data-toggle="tab"><span style="color: red;">Billing</span></a>
+                                        href="#tab-3" data-toggle="tab"><span style="color: red;">Thanh toán</span></a>
                 </li>
                 <li class="nav-item"><a class="nav-link" th:classappend="${classActiveShipping}? 'active'"
-                                        href="#tab-4" data-toggle="tab"><span style="color: red;">Shipping</span></a>
+                                        href="#tab-4" data-toggle="tab"><span style="color: red;">Địa chỉ</span></a>
                 </li>
             </ul>
 
@@ -49,28 +49,28 @@
                             <div class="card-body" style="background-color: #e2e3e5; margin-top: 20px;">
 
                                 <div class="alert alert-danger" th:if="${incorrectPassword}">
-                                    <strong>Incorrect Password!</strong>Please enter the correct password for the current user.
+                                    <strong>Mật khẩu không đúng</strong>Vui lòng nhập mật khẩu chính xác cho người dùng hiện tại.
                                 </div>
 
                                 <div class="alert alert-success" th:if="${updateSuccess}">
-                                    <strong>Update Success!</strong>
+                                    <strong>Thay đổi thành công</strong>
                                 </div>
 
                                 <form th:action="@{/updateUserInfo}" method="post">
                                     <input type="hidden" name="id" th:value="${user.id}"/>
 
-                                    <div class="bg-info" th:if="${updateUserInfo}">User info updated.</div>
+                                    <div class="bg-info" th:if="${updateUserInfo}">Thông tin đã được cập nhật</div>
 
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-6">
-                                                <label for="firstName">First Name</label>
+                                                <label for="firstName">Tên</label>
                                                 <input type="text" class="form-control" id="firstName" name="firstName"
                                                        th:value="${user.firstName}"/>
                                             </div>
 
                                             <div class="col-6">
-                                                <label for="lastName">Last Name</label>
+                                                <label for="lastName">Họ</label>
                                                 <input type="text" class="form-control" id="lastName" name="lastName"
                                                        th:value="${user.lastName}"/>
                                             </div>
@@ -78,44 +78,44 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="userName">Username</label>
+                                        <label for="userName">tên đăng nhập</label>
                                         <input type="text" class="form-control" id="userName" name="username"
                                                th:value="${user.username}"/>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="currentPassword">Current Password</label>
+                                        <label for="currentPassword">Mật khẩu hiện tại</label>
                                         <input type="password" class="form-control" id="currentPassword"
                                                name="password"
                                                th:value="${currentPassword}"/>
                                     </div>
-                                    <p style="color: #828282">Enter your current password to change the email address or
-                                        password.</p>
+                                    <p style="color: #828282">Nhập mật khẩu hiện tại của bạn để thay đổi địa chỉ email hoặc
+                                         mật khẩu.</p>
 
                                     <div class="form-group">
-                                        <label for="email">* Email Address</label>
+                                        <label for="email">* Địa chỉ Email</label>
                                         <input type="text" class="form-control" id="email" name="email"
                                                th:value="${user.email}"/>
                                     </div>
-                                    <p style="color: #828282">A valid email address. All emails from the system
-                                        will be sent to this address. The email address is not made public and will
-                                        only be used if you wish to receive a new password or wish to receive
-                                        certain notification.</p>
+                                    <p style="color: #828282">Một địa chỉ email hợp lệ. Tất cả các email từ hệ thống
+                                         sẽ được gửi đến địa chỉ này. Địa chỉ email không được công khai và sẽ
+                                         chỉ được sử dụng nếu bạn muốn nhận mật khẩu mới hoặc muốn nhận
+                                         thông báo nhất định.</p>
 
                                     <div class="form-group">
-                                        <label for="txtNewPassword">Password</label>&nbsp;<span id="checkPasswordMathch" style="color: red;"></span>
+                                        <label for="txtNewPassword">Mật khẩu</label>&nbsp;<span id="checkPasswordMathch" style="color: red;"></span>
                                         <input type="password" class="form-control" id="txtNewPassword"
                                                name="newPassword"/>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="txtConfirmPassword">Confirm Password</label>
+                                        <label for="txtConfirmPassword">Nhập lại mật khẩu</label>
                                         <input type="password" class="form-control" id="txtConfirmPassword"/>
                                     </div>
-                                    <p style="color: #828282">To change the current user password, enter the new
-                                        password in both fields.</p>
+                                    <p style="color: #828282">Để thay đổi mật khẩu người dùng hiện tại, hãy nhập mật khẩu mới
+                                         mật khẩu trong cả hai trường.</p>
 
-                                    <button id="updateUserInfoButton" type="submit" class="btn btn-primary">Save All</button>
+                                    <button id="updateUserInfoButton" type="submit" class="btn btn-primary">Lưu</button>
                                 </form>
                             </div>
                         </div>
@@ -131,10 +131,10 @@
                                 <table class="table table-sm table-dark">
                                     <thead>
                                     <tr>
-                                        <th>Order Date</th>
-                                        <th>Order Number</th>
-                                        <th>Total</th>
-                                        <th>Status</th>
+                                        <th>Ngày đặt</th>
+                                        <th>Mã đặt</th>
+                                        <th>Tổng</th>
+                                        <th>Trạng thái</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -153,14 +153,14 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="text-center">
-                                                <h2>Order Detail for Purchase #<span th:text="${order.id}"></span></h2>
+                                                <h2>Chi tiết đơn hàng #<span th:text="${order.id}"></span></h2>
                                             </div>
                                             <hr/>
 
                                             <div class="row">
                                                 <div class="col-4">
                                                     <div class="card height">
-                                                        <div class="card-header"><strong>Billing Details</strong></div>
+                                                        <div class="card-header"><strong>Chi tiết địa chỉ</strong></div>
                                                         <div class="card-body">
                                                             <span th:text="${order.billingAddress.billingAddressName}"></span><br/>
                                                             <span th:text="${order.billingAddress.billingAddressStreet1}+' '+${order.billingAddress.billingAddressStreet2}"></span><br/>
@@ -172,17 +172,17 @@
                                                 </div>
                                                 <div class="col-4">
                                                     <div class="card height">
-                                                        <div class="card-header"><strong>Payment Information</strong></div>
+                                                        <div class="card-header"><strong>Thông tin thanh toán</strong></div>
                                                        <div class="card-body">
-                                                           <span th:text="${order.payment.holderName}">Card Name</span><br/>
-                                                           <span th:text="${order.payment.cardNumber}">Card Number</span><br/>
-                                                           <span>Exp Date:</span><span th:text="${order.payment.expiryMonth}"></span>/<span th:text="${order.payment.expiryYear}"></span><br/>
+                                                           <span th:text="${order.payment.holderName}">Tên Card</span><br/>
+                                                           <span th:text="${order.payment.cardNumber}">Số Card</span><br/>
+                                                           <span>Ngày đặt:</span><span th:text="${order.payment.expiryMonth}"></span>/<span th:text="${order.payment.expiryYear}"></span><br/>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-4">
                                                     <div class="card height">
-                                                        <div class="card-header"><strong>Billing Details</strong></div>
+                                                        <div class="card-header"><strong>Chi tiết thanh toán</strong></div>
                                                         <div class="card-body">
                                                             <span th:text="${order.shippingAddress.shippingAddressName}"></span><br/>
                                                             <span th:text="${order.shippingAddress.shippingAddressStreet1}+' '+${order.shippingAddress.shippingAddressStreet2}"></span><br/>
@@ -199,17 +199,17 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="card-header">
-                                                <h3 class="text-center"><strong>Order Summary</strong></h3>
+                                                <h3 class="text-center"><strong>Đơn hàng</strong></h3>
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-responsive">
                                                     <table class="table table-condensed">
                                                         <thead>
                                                         <tr>
-                                                            <td><strong>Item Name</strong></td>
-                                                            <td class="text-center"><strong>Item Price</strong></td>
-                                                            <td class="text-center"><strong>Item Quantity</strong></td>
-                                                            <td class="text-right"><strong>total</strong></td>
+                                                            <td><strong>Tên</strong></td>
+                                                            <td class="text-center"><strong>Giá</strong></td>
+                                                            <td class="text-center"><strong>Số lượng</strong></td>
+                                                            <td class="text-right"><strong>Tổng tiền</strong></td>
                                                         </tr>
                                                         </thead>
                                                         <tbody>
@@ -222,19 +222,19 @@
                                                         <tr>
                                                             <td class="highrow"></td>
                                                             <td class="highrow"></td>
-                                                            <td class="highrow text-center"><strong>Subtotal</strong></td>
+                                                            <td class="highrow text-center"><strong>Tổng phụ</strong></td>
                                                             <td class="highrow text-right" data-th-text="${order.orderTotal}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="emptyrow"></td>
                                                             <td class="emptyrow"></td>
-                                                            <td class="emptyrow text-center"><strong>Tax</strong></td>
+                                                            <td class="emptyrow text-center"><strong>Tổng</strong></td>
                                                             <td class="emptyrow text-right" data-th-text="${#numbers.formatDecimal(order.orderTotal*0.075, 0, 2)}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
                                                             <td class="emptyrow"></td>
-                                                            <td class="emptyrow text-center"><strong>Total</strong></td>
+                                                            <td class="emptyrow text-center"><strong>Thành tiền</strong></td>
                                                             <td th:with="total=${order.orderTotal+order.orderTotal*0.075}" data-th-text="${#numbers.formatDecimal(total, 0, 2)}" class="emptyrow"></td>
                                                         </tr>
                                                         </tbody>
@@ -256,12 +256,12 @@
                             <div class="card-body" style="background-color: #e2e3e5; margin-top: 20px;">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item active">
-                                        <a th:href="@{/listOfCreditCards}" th:style="${listOfCreditCards}? 'color:red;'">List
-                                            of Credit Cards</a>
+                                        <a th:href="@{/listOfCreditCards}" th:style="${listOfCreditCards}? 'color:red;'">Danh
+                                        sách thẻ thanh toán</a>
                                     </li>
                                     <li class="breadcrumb-item active">
-                                        <a th:href="@{/addNewCreditCard}" th:style="${addNewCreditCard}? 'color:red;'">Add(Update)
-                                            Credit Card</a>
+                                        <a th:href="@{/addNewCreditCard}" th:style="${addNewCreditCard}? 'color:red;'">Thêm
+                                            thẻ thanh toán</a>
                                     </li>
                                 </ol>
 
@@ -270,9 +270,9 @@
                                         <table class="table">
                                             <thead>
                                             <tr>
-                                                <th>Default</th>
-                                                <th>Credit Card</th>
-                                                <th>Operations</th>
+                                                <th>Mặc định</th>
+                                                <th>Thẻ thanh toán</th>
+                                                <th>Hoạt động</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -292,18 +292,18 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <button class="btn btn-primary" type="submit">Save</button>
+                                        <button class="btn btn-primary" type="submit">Lưu</button>
                                     </form>
                                 </div>
 
                                 <div th:if="${addNewCreditCard}">
                                     <form th:action="@{addNewCreditCard}" method="post">
-                                        <div class="bg-info" th:if="${updateUserPaymentInfo}">User info updated.</div>
+                                        <div class="bg-info" th:if="${updateUserPaymentInfo}">Thông tin người dùng đã được cập nhật</div>
 
                                         <input hidden="hidden" name="id" th:value="${userPayment.id}" />
 
                                         <div class="form-group">
-                                            <h5>* Give a name for your card: </h5>
+                                            <h5>* Đặt tên cho thẻ của bạn: </h5>
                                             <input type="text" class="form-control" id="cardName"
                                                    placeholder="Card Name" th:name="cardName" required="required"
                                                    th:value="${userPayment.cardName}"/>
@@ -312,42 +312,42 @@
                                         <!--Billing Address-->
                                         <hr/>
                                         <div class="form-group">
-                                            <h4>Billing Address</h4>
+                                            <h4>Địa chỉ thanh toán</h4>
                                         </div>
                                         <div class="form-group">
-                                            <label for="billingName">* Name</label>
+                                            <label for="billingName">* Tên</label>
                                             <input type="text" class="form-control" id="billingName"
-                                                   placeholder="Receiver Name" th:name="userBillingName"
+                                                   placeholder="Người nhận hàng" th:name="userBillingName"
                                                    required="required" th:value="${userBilling.userBillingName}"/>
                                         </div>
                                         <div class="form-group">
-                                            <label for="billingAddress">* Street Address</label>
+                                            <label for="billingAddress">* Đường</label>
                                             <input type="text" class="form-control" id="billingAddress"
-                                                   placeholder="Street Address 1" th:name="userBillingStreet1"
+                                                   placeholder="Số nhà" th:name="userBillingStreet1"
                                                    required="required" th:value="${userBilling.userBillingStreet1}"/>
                                             <input type="text" class="form-control"
-                                                   placeholder="Street Address 2" th:name="userBillingStreet2"
+                                                   placeholder="Đường" th:name="userBillingStreet2"
                                                    th:value="${userBilling.userBillingStreet2}"/>
                                         </div>
 
                                         <div class="row">
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <label for="billingCity">* City</label>
+                                                    <label for="billingCity">* Thành phố</label>
                                                     <input type="text" class="form-control" id="billingCity"
-                                                           placeholder="Billing City" th:name="userBillingCity"
+                                                           placeholder="Thành phố" th:name="userBillingCity"
                                                            required="required"
                                                            th:value="${userBilling.userBillingCity}"/>
                                                 </div>
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <label for="billingState">* State</label>
+                                                    <label for="billingState">* Tỉnh</label>
                                                     <select id="billingState" class="form-control"
                                                             th:name="userBillingState"
                                                             th:value="${userBilling.userBillingState}"
                                                             required="required">
-                                                        <option value="" disabled="disabled">Please select an option
+                                                        <option value="" disabled="disabled">Làm ơn chọn 1 lựa chọn
                                                         </option>
                                                         <option th:each="state : ${stateList}" th:text="${state}"
                                                                 th:selected="(${userBilling.userBillingState}==${state})"></option>
@@ -356,9 +356,9 @@
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <label for="billingZipcode">* Zipcode</label>
+                                                    <label for="billingZipcode">* Mã vùng</label>
                                                     <input type="text" class="form-control" id="billingZipcode"
-                                                           placeholder="Billing Zipcode" th:name="userBillingZipcode"
+                                                           placeholder="Mã vùng" th:name="userBillingZipcode"
                                                            required="required"
                                                            th:value="${userBilling.userBillingZipcode}"/>
                                                 </div>
@@ -368,13 +368,13 @@
                                         <!--Credit Card Information-->
                                         <hr/>
                                         <div class="form-group">
-                                            <h4>Credit Card Information</h4>
+                                            <h4>Thông tin thẻ thanh toán</h4>
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
                                                 <img src="/image/creditcard.png" class="img-fluid"/><br/>
                                                 <div class="form-group">
-                                                    <label for="cardType">* Select Card Type:</label>
+                                                    <label for="cardType">* Chọn loại thẻ:</label>
                                                     <select class="form-control" id="cardType" th:name="type"
                                                             th:value="${userPayment.type}">
                                                         <option value="visa">Visa</option>
@@ -384,16 +384,16 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="cardHolder">* Card Holder Name:</label>
+                                                    <label for="cardHolder">* Tên chủ thẻ:</label>
                                                     <input type="text" class="form-control" id="cardHolder"
-                                                           required="required" placeholder="Card Holder Name"
+                                                           required="required" placeholder="Tên chủ thẻ"
                                                            th:name="holderName" th:value="${userPayment.holderName}"/>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="cardNumber">* Card Number:</label>
+                                                    <label for="cardNumber">* Số thẻ:</label>
                                                     <div class="input-group">
                                                         <input type="tel" class="form-control" id="cardNumber"
-                                                               required="required" placeholder="Valid Card Number"
+                                                               required="required" placeholder="Số thẻ"
                                                                th:name="cardNumber"
                                                                th:value="${userPayment.cardNumber}"/>
                                                         <!--wrong line--><span class="input-group-"><i
@@ -406,31 +406,31 @@
                                         <div class="row">
                                             <div class="col-7">
                                                 <div class="form-group">
-                                                    <label>* Expiration Date</label>
+                                                    <label>* Ngày hết hạn</label>
                                                     <div class="row">
                                                         <div class="col-6">
                                                             <select class="form-control" name="expiryMonth"
                                                                     required="required"
                                                                     th:value="${userPayment.expiryMonth}">
-                                                                <option disabled="disabled">-- Month --</option>
-                                                                <option value="01">Jan (01)</option>
-                                                                <option value="02">Feb (02)</option>
-                                                                <option value="03">Mar (03)</option>
-                                                                <option value="04">Apr (04)</option>
-                                                                <option value="05">May (05)</option>
-                                                                <option value="06">June (06)</option>
-                                                                <option value="07">July (07)</option>
-                                                                <option value="08">Aug (08)</option>
-                                                                <option value="09">Sep (09)</option>
-                                                                <option value="10">Oct (10)</option>
-                                                                <option value="11">Nov (11)</option>
-                                                                <option value="12">Dec (12)</option>
+                                                                <option disabled="disabled">-- Tháng --</option>
+                                                                <option value="01">Tháng 1(01)</option>
+                                                                <option value="02">Tháng 2(02)</option>
+                                                                <option value="03">Tháng 3(03)</option>
+                                                                <option value="04">Tháng 4(04)</option>
+                                                                <option value="05">Tháng 5(05)</option>
+                                                                <option value="06">Tháng 6(06)</option>
+                                                                <option value="07">Tháng 7(07)</option>
+                                                                <option value="08">Tháng 8(08)</option>
+                                                                <option value="09">Tháng 9(09)</option>
+                                                                <option value="10">Tháng 10(10)</option>
+                                                                <option value="11">Tháng 11(11)</option>
+                                                                <option value="12">Tháng 12(12)</option>
                                                             </select>
                                                         </div>
                                                         <div class="col-6">
                                                             <select class="form-control" name="expiryYear"
                                                                     th:value="${userPayment.expiryYear}">
-                                                                <option disabled="disabled">-- Year --</option>
+                                                                <option disabled="disabled">-- Năm --</option>
                                                                 <option value="2017">2017</option>
                                                                 <option value="2018">2018</option>
                                                                 <option value="19">2019</option>
@@ -459,7 +459,7 @@
                                             </div>
                                         </div>
                                         <hr/>
-                                        <button type="submit" class="btn btn-primary btn-lg">Save All</button>
+                                        <button type="submit" class="btn btn-primary btn-lg">Lưu</button>
                                     </form>
                                 </div>
                             </div>
@@ -474,12 +474,12 @@
                             <div class="card-body" style="background-color: #e2e3e5; margin-top: 20px;">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item active">
-                                        <a th:href="@{/listOfShippingAddresses}" th:style="${listOfShippingAddresses}? 'color:red;'">List
-                                            of Shipping Addresses</a>
+                                        <a th:href="@{/listOfShippingAddresses}" th:style="${listOfShippingAddresses}? 'color:red;'">Danh
+                                            sách địa chỉ giao hàng</a>
                                     </li>
                                     <li class="breadcrumb-item active">
-                                        <a th:href="@{/addNewShippingAddress}" th:style="${addNewShippingAddress}? 'color:red;'">Add(Update)
-                                            Shipping Address</a>
+                                        <a th:href="@{/addNewShippingAddress}" th:style="${addNewShippingAddress}? 'color:red;'">Thêm
+                                            địa chỉ giao hàng</a>
                                     </li>
                                 </ol>
 
@@ -488,9 +488,9 @@
                                         <table class="table">
                                             <thead>
                                             <tr>
-                                                <th>Default</th>
-                                                <th>Shipping Address</th>
-                                                <th>Operations</th>
+                                                <th>Mặc định</th>
+                                                <th>Địa chỉ giao hàng</th>
+                                                <th>Hoạt động</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -498,7 +498,7 @@
                                                 <td>
                                                     <input type="radio" name="defaultShippingAddressId"
                                                            th:value="${userShipping.id}"
-                                                           th:checked="${userShipping.userShippingDefault}"/><span>default</span>
+                                                           th:checked="${userShipping.userShippingDefault}"/><span>Mặc định</span>
                                                 </td>
                                                 <td th:text="${userShipping.userShippingStreet1}+', '+${userShipping.userShippingCity}+', '+${userShipping.userShippingState}"></td>
                                                 <td>
@@ -510,33 +510,33 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <button class="btn btn-primary" type="submit">Save</button>
+                                        <button class="btn btn-primary" type="submit">Lưu</button>
                                     </form>
                                 </div>
 
                                 <div th:if="${addNewShippingAddress}">
                                     <form th:action="@{addNewShippingAddress}" method="post">
-                                        <div class="bg-info" th:if="${updateUserShippingInfo}">User info updated.</div>
+                                        <div class="bg-info" th:if="${updateUserShippingInfo}">Thông tin người dùng đã được cập nhật</div>
 
                                         <input hidden="hidden" name="id" th:value="${userShipping.id}">
 
                                         <!--Shipping Address-->
                                         <hr/>
                                         <div class="form-group">
-                                            <h4>Shipping Address</h4>
+                                            <h4>Địa chỉ giao hàng</h4>
                                         </div>
                                         <div class="form-group">
-                                            <label for="shippingName">* Name</label>
+                                            <label for="shippingName">* Tên</label>
                                             <input type="text" class="form-control" id="shippingName"
-                                                   placeholder="Receiver Name" th:name="userShippingName"
+                                                   placeholder="Tên người nhận" th:name="userShippingName"
                                                    required="required" th:value="${userShipping.userShippingName}"/>
                                         </div>
                                         <div class="form-group">
-                                            <label for="shippingAddress">* Street Address</label>
+                                            <label for="shippingAddress">* Đường</label>
                                             <input type="text" class="form-control" id="shippingAddress"
-                                                   placeholder="Street Address 1" th:name="userShippingStreet1"
+                                                   placeholder="Số nhà" th:name="userShippingStreet1"
                                                    required="required" th:value="${userShipping.userShippingStreet1}"/>
-                                            <input type="text" class="form-control" placeholder="Street Address 2"
+                                            <input type="text" class="form-control" placeholder="Đường"
                                                    th:name="userShippingStreet2"
                                                    th:value="${userShipping.userShippingStreet2}"/>
                                         </div>
@@ -544,21 +544,21 @@
                                         <div class="row">
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <label for="shippingCity">* City</label>
+                                                    <label for="shippingCity">* Thành phố</label>
                                                     <input type="text" class="form-control" id="shippingCity"
-                                                           placeholder="shipping City" th:name="userShippingCity"
+                                                           placeholder="Thành phố" th:name="userShippingCity"
                                                            required="required"
                                                            th:value="${userShipping.userShippingCity}"/>
                                                 </div>
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <label for="shippingState">* State</label>
+                                                    <label for="shippingState">* Tỉnh</label>
                                                     <select id="shippingState" class="form-control"
                                                             th:name="userShippingState"
                                                             th:value="${userShipping.userShippingState}"
                                                             required="required">
-                                                        <option value="" disabled="disabled">Please select an option
+                                                        <option value="" disabled="disabled">Làm ơn chọn 1 lựa chọn
                                                         </option>
                                                         <option th:each="state : ${stateList}" th:text="${state}"
                                                                 th:selected="(${userShipping.userShippingState}==${state})"></option>
@@ -567,9 +567,9 @@
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <label for="shippingZipcode">* Zipcode</label>
+                                                    <label for="shippingZipcode">* Mã vùng</label>
                                                     <input type="text" class="form-control" id="shippingZipcode"
-                                                           placeholder="Shipping Zipcode" th:name="userShippingZipcode"
+                                                           placeholder="Mã vùng" th:name="userShippingZipcode"
                                                            required="required"
                                                            th:value="${userShipping.userShippingZipcode}"/>
                                                 </div>
@@ -577,7 +577,7 @@
                                         </div>
 
                                         <hr/>
-                                        <button type="submit" class="btn btn-primary btn-lg">Save All</button>
+                                        <button type="submit" class="btn btn-primary btn-lg">Lưu</button>
                                     </form>
                                 </div>
                             </div>

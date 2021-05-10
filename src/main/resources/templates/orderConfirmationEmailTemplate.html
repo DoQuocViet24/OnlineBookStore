@@ -22,18 +22,18 @@
     </style>
 </head>
 <body>
-<p>Dear <span th:text="${user.firstName}"></span></p>
+<p>Xin chào <span th:text="${user.firstName}"></span></p>
 <br/>
-<p>Thank you for shopping from our book store. We hope you had a good time with our service!</p>
-<p>Your order number is: <strong>#<span th:text="${order.id}"></span></strong>. Here is your order detail:</p>
-<h2>Order Detail for purchase #<span th:text="${order.id}"></span></h2>
+<p>Cảm ơn bạn đã mua sắm từ cửa hàng sách của chúng tôi. Chúng tôi hy vọng bạn đã có một thời gian tốt với dịch vụ của chúng tôi!</p>
+<p>Số đơn đặt hàng của bạn là: <strong>#<span th:text="${order.id}"></span></strong>. Đây là chi tiết đơn đặt hàng của bạn:</p>
+<h2>Chi tiết đơn hàng để mua #<span th:text="${order.id}"></span></h2>
 <hr/>
 
 <table>
     <tr>
-        <th>Billing Detail</th>
-        <th>Payment Information</th>
-        <th>Shipping Address</th>
+        <th>Chi tiết thanh toán</th>
+        <th>Thông tin thanh toán</th>
+        <th>Địa chỉ giao hàng</th>
     </tr>
     <tr>
         <td>
@@ -59,14 +59,14 @@
         </td>
     </tr>
 </table>
-<h3><strong>Order Summary</strong></h3>
+<h3><strong>Đơn Hàng</strong></h3>
 <table>
     <thead>
     <tr>
-        <td><strong>Item Name</strong></td>
-        <td class="text-center"><strong>Item Price</strong></td>
-        <td class="text-center"><strong>Item Quantity</strong></td>
-        <td class="text-center"><strong>Total</strong></td>
+        <td><strong>Tên</strong></td>
+        <td class="text-center"><strong>Giá</strong></td>
+        <td class="text-center"><strong>Số lượng</strong></td>
+        <td class="text-center"><strong>Tổng</strong></td>
     </tr>
     </thead>
     <tbody>
@@ -79,27 +79,27 @@
     <tr>
         <td class="highrow"></td>
         <td class="highrow"></td>
-        <td class="highrow text-center"><strong>Subtotal</strong></td>
+        <td class="highrow text-center"><strong>Tổng phụ</strong></td>
         <td class="highrow text-right" data-th-text="${order.orderTotal}"></td>
     </tr>
     <tr>
         <td class="emptyrow"></td>
         <td class="emptyrow"></td>
-        <td class="emptyrow text-center"><strong>Tax</strong></td>
+        <td class="emptyrow text-center"><strong>Thuế</strong></td>
         <td class="emptyrow text-right" data-th-text="${#numbers.formatDecimal(order.orderTotal*0.075, 0, 2)}"></td>
     </tr>
     <tr>
         <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
         <td class="emptyrow"></td>
-        <td class="emptyrow text-center"><strong>Total</strong></td>
+        <td class="emptyrow text-center"><strong>Tổng</strong></td>
         <td th:with="total=${order.orderTotal+order.orderTotal*0.075}" data-th-text="${#numbers.formatDecimal(total, 0, 2)}" class="emptyrow"></td>
     </tr>
     </tbody>
 </table>
 
 <br/>
-<p>Best, </p>
-<p>Le's Bookstore</p>
-<p>Since 1923</p>
+<p>Thân, </p>
+<p>Royal Book Store</p>
+<p>Since 2021</p>
 </body>
 </html>

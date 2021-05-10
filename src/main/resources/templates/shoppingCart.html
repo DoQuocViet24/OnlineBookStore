@@ -12,7 +12,7 @@
         <div class="col-8">
             <h2 class="section-headline">
                 <h2 class="section-headline"><span
-                        th:text="${user}? ${#strings.toUpperCase(user.username)} : 'All Books'"></span></h2>
+                        th:text="${user}? ${#strings.toUpperCase(user.username)} : 'Giỏ hàng'"></span></h2>
             </h2>
         </div>
         <div class="col-4">
@@ -27,30 +27,30 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-6 text-left">
-                    <a class="btn btn-warning" th:href="@{/bookshelf}">Continue Shopping</a>
+                    <a class="btn btn-warning" th:href="@{/bookshelf}">Tiếp tục mua sắm</a>
                 </div>
                 <div class="col-6 text-right">
-                    <a class="btn btn-primary" th:href="@{/checkout(id=${shoppingCart.id})}">Check Out</a>
+                    <a class="btn btn-primary" th:href="@{/checkout(id=${shoppingCart.id})}">Thanh toán</a>
                 </div>
                 <br/>
                 <div th:if="${notEnoughStock}" class="alert alert-warning">
-                    Oops, some of the products don't have enough stock. Please update product quantity.
+                    Oops, Số lượng sách còn lại không đủ, vui lòng thay đổi lại số lượng chọn mua.
                 </div>
                 <div th:if="${notEnoughStock}" class="alert alert-warning">
-                    Oops, your cart is empty. See if you can find what you like in the bookshelf and add them to cart.
+                    Oops, Giỏ hàng trống. Vui lòng chọn ít nhất 1 cuốn sách vào trong giỏ hàng
                 </div>
             </div>
 
             <br/><br/>
             <div class="row">
                 <div class="col-8">
-                    <h4 style="margin-left: 70px;">Products</h4>
+                    <h4 style="margin-left: 70px;">Sản phẩm</h4>
                 </div>
                 <div class="col-2">
-                    <h4>Price</h4>
+                    <h4>Giá</h4>
                 </div>
                 <div class="col-2">
-                    <h4>Qty</h4>
+                    <h4>Số lượng</h4>
                 </div>
             </div>
 
@@ -72,16 +72,16 @@
                         <div class="form-group col-6">
                             <div style="margin-left: 50px;">
                                 <a th:href="@{/bookDetail?id=}+${cartItem.book.id}"><h4 th:text="${cartItem.book.title}"></h4></a>
-                                <p th:if="${cartItem.book.inStockNumber&gt;10}" style="color: green;">In Stock</p>
+                                <p th:if="${cartItem.book.inStockNumber&gt;10}" style="color: green;">số lượng còn lại</p>
                                 <p th:if="${cartItem.book.inStockNumber&lt;10} and ${cartItem.book.inStockNumber&gt;0}"
-                                   style="color: green;">Only <span th:text="${cartItem.book.inStockNumber}"></span> In Stock</p>
-                                <p th:if="${cartItem.book.inStockNumber==0}" style="color: darkred;">Product Unavailable</p>
-                                <a th:href="@{/shoppingCart/removeItem?id=}+${cartItem.id}">delete</a>
+                                   style="color: green;">Only <span th:text="${cartItem.book.inStockNumber}"></span>số lượng còn lại</p>
+                                <p th:if="${cartItem.book.inStockNumber==0}" style="color: darkred;">Sản phẩm không hợp lệ</p>
+                                <a th:href="@{/shoppingCart/removeItem?id=}+${cartItem.id}">Xóa</a>
                             </div>
                         </div>
 
                         <div class="form-group col-2">
-                            <h5 style="color: #db3208; font-size: large;">$<span th:text="${cartItem.book.ourPrice}"
+                            <h5 style="color: #db3208; font-size: large;">VNĐ<span th:text="${cartItem.book.ourPrice}"
                                                                                  th:style="${cartItem.book.inStockNumber}==0? 'text-decoration : line-through' : ''"></span>
                             </h5>
                         </div>
@@ -91,7 +91,7 @@
                             <input th:id="${cartItem.id}" th:name="qty" th:disabled="${cartItem.book.inStockNumber==0}"
                                    class="form-control cartItemQty" th:value="${cartItem.qty}"/>
                             <button style="display: none;" th:id="'update-item-'+${cartItem.id}" type="submit"
-                                    class="btn btn-warning btn-xs">Update
+                                    class="btn btn-warning btn-xs">Cập nhật
                             </button>
                         </div>
                     </div>
@@ -101,10 +101,11 @@
             <hr/>
 
             <div class="row">
-                <h4 class="col-12 text-right"><strong style="font-size: large;">Total Price(<span
-                        th:text="${#lists.size(cartItemList)}"></span> items):</strong><span
-                        style="color: #db3208; font-size: large;">$<span
-                        th:text="${shoppingCart.grandTotal}"></span></span>
+                <h4 class="col-12 text-right"><strong style="font-size: large;">Tổng giá(<span
+                        th:text="${#lists.size(cartItemList)}"></span> mặt hàng):</strong>
+                        <span th:text="${shoppingCart.grandTotal}"></span><span
+                        style="color: #db3208; font-size: large;"> VNĐ 
+                        </span>
                 </h4>
             </div>
         </div>
