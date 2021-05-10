@@ -9,34 +9,29 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-8">
+        <div class="pos">
             <h2 class="section-headline">
                 <h2 class="section-headline"><span th:text="${user}? ${#strings.toUpperCase(user.username)} : 'All Books'"></span></h2>
             </h2>
         </div>
-        <div class="col-4">
-            <img src="/image/logo.png" class="img-fluid"/>
-        </div>
         <hr style="width: 100%; height: 6px; background-color: #333; z-index: -1; margin-top: -10%;"/>
     </div>
 
-    <img src="/image/wood.png" class="img-fluid" style="margin-top: -5%;"/>
-
     <div class="row" style="margin-top: 60px;">
         <div class="col-3">
-            <h3><label for="category">Category</label></h3>
+            <h3><label for="category">Thể loại</label></h3>
             <div class="list-group" id="category">
                 <a th:href="@{/bookshelf(category='all')}" th:classappend="${activeAll}? 'active'" class="list-group-item list-group-item-action">All</a>
-                <a th:href="@{/searchByCategory(category='Management')}" th:classappend="${activeManagement}? 'active'" class="list-group-item list-group-item-action">Management</a>
-                <a th:href="@{/searchByCategory(category='Fiction')}" th:classappend="${activeFiction}? 'active'" class="list-group-item list-group-item-action">Fiction</a>
-                <a th:href="@{/searchByCategory(category='Engineering')}" th:classappend="${activeEngineering}? 'active'" class="list-group-item list-group-item-action">Engineering</a>
-                <a th:href="@{/searchByCategory(category='Programming')}" th:classappend="${activeProgramming}? 'active'" class="list-group-item list-group-item-action">Programming</a>
-                <a th:href="@{/searchByCategory(category='Arts &amp; Literature')}" th:classappend="${activeArtsLiterature}? 'active'" class="list-group-item list-group-item-action">Arts &amp; Literature</a>
+                <a th:href="@{/searchByCategory(category='Kinh doanh')}" th:classappend="${activeManagement}? 'active'" class="list-group-item list-group-item-action">Kinh doanh</a>
+                <a th:href="@{/searchByCategory(category='Viễn tưởng')}" th:classappend="${activeFiction}? 'active'" class="list-group-item list-group-item-action">Viễn tưởng</a>
+                <a th:href="@{/searchByCategory(category='Khoa học')}" th:classappend="${activeEngineering}? 'active'" class="list-group-item list-group-item-action">Khoa học</a>
+                <a th:href="@{/searchByCategory(category='Chương trình giáo dục')}" th:classappend="${activeProgramming}? 'active'" class="list-group-item list-group-item-action">Chương trình giáo dục</a>
+                <a th:href="@{/searchByCategory(category='Nghệ thuật &amp; Văn học')}" th:classappend="${activeArtsLiterature}? 'active'" class="list-group-item list-group-item-action">Nghệ thuật &amp; Văn học</a>
             </div>
         </div>
         <div class="col-9">
             <div th:if="${emptyList}">
-                <h5 style="font-style: italic;">Oops, no result is found. Try something else or try again later.</h5>
+                <h5 style="font-style: italic;">Oops, Không có kết quả, vui lòng thử lại.</h5>
             </div>
 
             <table border="0" id="bookList" class="dataTable no-footer">
@@ -54,7 +49,7 @@
                                     <span th:text="${book.publicationDate}"></span>
                                     <p th:text="${book.author}"></p>
                                     <a th:href="@{/bookDetail?id=}+${book.id}"><span th:text="${#strings.capitalize(book.format)}"></span></a>
-                                    <span th:text="${book.numberOfPages}"><span> pages</span></span><br/>
+                                    <span th:text="${book.numberOfPages}"><span> Trang</span></span><br/>
 
                                     <a th:href="@{/bookDetail?id=}+${book.id}"><span style="font-size: x-large; color: #db3208;">$<span th:text="${#numbers.formatDecimal(book.ourPrice, 0, 'COMMA', 2, 'POINT')}"></span></span></a>
                                     <span style="text-decoration: line-through;">$<span th:text="${#numbers.formatDecimal(book.listPrice, 0, 'COMMA', 2, 'POINT')}"></span></span>

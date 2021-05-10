@@ -2,6 +2,10 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+.size-custom{
+	width: 20%;
+}
 hr {
     border: none;
     height: 1px;
@@ -13,7 +17,7 @@ hr {
 }
 
 .banner {
-    background-image: url("/image/bgline.png");
+    background-image: url("/image/background-black.jpeg");
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -185,4 +189,7 @@ footer {
 .bottom_ul li a {
     color: #FFF;
     font-size: 12px;
+}
+.pos{
+    text-align: left;
 }

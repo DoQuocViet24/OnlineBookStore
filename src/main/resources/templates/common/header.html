@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
    
-    <title>Le's Bookstore</title>
+    <title>Royal Book Store</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
@@ -21,7 +21,8 @@
     <!-- Custom styles for this template -->
     <link href="/css/style.css" rel="stylesheet"/>
 
-    <link href="/image/apple-touch-icon.png" rel="icon"/>
+    <link href="/image/logo.png" rel="icon"/>   
+
 </head>
 
 <body>
@@ -31,29 +32,29 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <!--<div class="container-fluid">-->
         <div class="navbar-header">
-            <a class="navbar-brand" th:href="@{/}">LE'S BOOKSTORE</a>
+            <a class="navbar-brand" th:href="@{/}">Royal Book Store</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
                     <a th:href="@{/bookshelf}" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="false">BOOKS <span class="caret"></span></a>
+                       aria-haspopup="true" aria-expanded="false">Tuỳ chọn <span class="caret"></span></a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" th:href="@{/bookshelf}">Browse the bookshelf</a>
-                        <a class="dropdown-item" th:href="@{/hours}">Store hours &#38 Directions</a>
+                        <a class="dropdown-item" th:href="@{/bookshelf}">Tìm kiếm sách</a>
+                        <a class="dropdown-item" th:href="@{/hours}">Giờ mở cửa và vị trí</a>
                         <a class="dropdown-item" th:href="@{/faq}">FAQ</a>
                     </div>
                 </li>
                 <form class="form-inline mt-2 mt-md-0" th:action="@{/searchBook}" method="post">
                     <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Book title"/>
-                    <button class="btn btn-default my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-default my-2 my-sm-0" type="submit">Tìm kiếm</button>
                 </form>
             </ul>
             <ul class="nav navbar-nav">
-                <li><a class="nav-link" th:href="@{/shoppingCart/cart}">SHOPPING CART</a></li>
-                <li><a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}">MY ACCOUNT</a></li>
-                <li><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/myProfile}">MY Profile</a></li>
-                <li><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT</a></li>
+                <li><a class="nav-link" th:href="@{/shoppingCart/cart}">Giỏ hàng</a></li>
+                <li><a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}">Tài khoản</a></li>
+                <li><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/myProfile}">Thông tin cá nhân</a></li>
+                <li><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}">Đăng xuất</a></li>
             </ul>
         </div><!--/.nav-collapse -->
         <!--</div>&lt;!&ndash;/.container-fluid &ndash;&gt;-->
@@ -66,38 +67,38 @@
         <div class="row">
             <div class="col-3 footerleft">
                 <div class="logofooter">
-                    <a th:href="@{/}"><img class="img-fluid" src="/image/x1" style="width: 200px;"/></a>
+                    <a th:href="@{/}"><img class="img-fluid" src="/image/logo.png" style="width: 200px;"/></a>
                 </div>
-                <p>Le's Independent Book Store. <br/>Serving our customers with the best.</p>
+                <p>Cửa hàng sách Royal <br/>Serving our customers with the best.</p>
             </div>
             <div class="col-3 paddingtop-bottom">
-                <h6 class="heading7">CONTACT</h6>
+                <h6 class="heading7">LIÊN HỆ</h6>
                 <ul class="post">
                     <p>
-                        <i class="fa fa-map-pin"></i> 123 XXX Ave<br /> Boston MA, USA
-                        02112
+                        <i class="fa fa-map-pin"></i> 47 Nguyễn Tuân<br /> Thanh Xuân, Hà Nội
+                        
                     </p>
                     <p>
-                        <i class="fa fa-phone"></i> Phone (USA) : +1 999 999 9999
+                        <i class="fa fa-phone"></i> Phone (VN) : +84 966 233 299
                     </p>
                     <p>
-                        <i class="fa fa-envelope"></i> E-mail : info@lebookstore.com
+                        <i class="fa fa-envelope"></i> E-mail : royalstore44@gmail.com
                     </p>
                 </ul>
             </div>
             <div class="col-3 paddingtop-bottom">
-                <h6 class="heading7">LINKS</h6>
+                <h6 class="heading7">Liên kết</h6>
                 <ul class="footer-ul">
-                    <li><a href="#"> Privacy Policy</a></li>
-                    <li><a href="#"> Terms &#38; Conditions</a></li>
-                    <li><a href="#"> Frequently Ask Questions</a></li>
+                    <li><a href="#"> Chính sách bảo mật</a></li>
+                    <li><a href="#"> Điều khoản &#38; Điều kiện</a></li>
+                    <li><a href="#"> Câu hỏi thường gặp</a></li>
                 </ul>
             </div>
             <div class="col-3 paddingtop-bottom">
-                <h6 class="heading7">STORE HOURS</h6>
+                <h6 class="heading7">Giờ mở cửa</h6>
                 <div class="post">
-                    <p>Monday - Saturday: 9am - 11pm</p>
-                    <p>Sunday: 10am - 10pm</p>
+                    <p>Thứ hai - Thứ bảy: 8am - 10pm</p>
+                    <p>Chủ nhật: 10am - 8pm</p>
                 </div>
             </div>
         </div>
@@ -105,15 +106,15 @@
 
     <div class="copyright">
         <div class="col-md-6">
-            <p>© 2018 - All Rights Reserved</p>
+            <p>© 2021 - All Rights Reserved</p>
         </div>
         <div class="col-md-6">
             <ul class="bottom_ul">
-                <li><a href="#">About us</a></li>
+                <li><a href="#">Về chúng tôi</a></li>
                 <li><a href="#">Blog</a></li>
                 <li><a href="#">Faq's</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Site Map</a></li>
+                <li><a href="#">Liên hệ</a></li>
+                <li><a href="#">Bản đồ</a></li>
             </ul>
         </div>
     </div>
