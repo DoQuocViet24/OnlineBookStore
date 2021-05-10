@@ -47,7 +47,7 @@
                         <div th:if="${book != null}">
                             <div class="row" style="margin-bottom: 50px;">
                                 <div class="col-3">
-                                    <a th:href="@{/bookDetail?id=}+${book.id}"><img class="img-fluid shelf-book" th:src="@{http://localhost:9000/image/book/}+${book.id}+'.png'"/></a>
+                                    <a th:href="@{/bookDetail?id=}+${book.id}"><img class="img-fluid shelf-book" th:src="@{https://bookstorenhom1.herokuapp.com/image/book/}+${book.id}+'.png'"/></a>
                                 </div>
                                 <div class="col-9">
                                     <a th:href="@{/bookDetail?id=}+${book.id}"><h4 th:text="${book.title}"></h4></a>
