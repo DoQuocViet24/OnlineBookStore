@@ -28,10 +28,10 @@ public class MailConstructor {
             String contextPath, Locale locale, String token, User user, String password
     ) {
         String url = contextPath+"/newUser?token="+token;
-        String message = "\nPlease click on this link to verify your email and edit your personal information. Your password is: \n"+password;
+        String message = "\nVui lòng nhấp vào liên kết này để xác minh email và chỉnh sửa thông tin cá nhân của bạn. Mật khẩu của bạn là: \n"+password;
         SimpleMailMessage email = new SimpleMailMessage();
         email.setTo(user.getEmail());
-        email.setSubject("Le's Bookstore - New User");
+        email.setSubject("Royal Book Store  - New Account");
         email.setText(url+message);
         email.setFrom(env.getProperty("support.email"));
         return email;
@@ -49,7 +49,7 @@ public class MailConstructor {
             public void prepare(javax.mail.internet.MimeMessage mimeMessage) throws Exception {
                 MimeMessageHelper email = new MimeMessageHelper(mimeMessage);
                 email.setTo(user.getEmail());
-                email.setSubject("Order Confirmation - " + order.getId());
+                email.setSubject("Xác nhận đơn hàng - " + order.getId());
                 email.setText(text, true);
                 email.setFrom(new InternetAddress("doquocvietmt@gmail.com"));
             }
