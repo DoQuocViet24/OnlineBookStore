@@ -22,7 +22,7 @@
             <h3><label for="category">Thể loại</label></h3>
             <div class="list-group" id="category">
                 <a th:href="@{/bookshelf(category='all')}" th:classappend="${activeAll}? 'active'" class="list-group-item list-group-item-action">All</a>
-                <a th:href="@{/searchByCategory(category='Managament')}" th:classappend="${activeManagement}? 'active'" class="list-group-item list-group-item-action">Managament</a>
+                <a th:href="@{/searchByCategory(category='Management')}" th:classappend="${activeManagement}? 'active'" class="list-group-item list-group-item-action">Management</a>
                 <a th:href="@{/searchByCategory(category='Fiction')}" th:classappend="${activeFiction}? 'active'" class="list-group-item list-group-item-action">Fiction</a>
                 <a th:href="@{/searchByCategory(category='Engineering')}" th:classappend="${activeEngineering}? 'active'" class="list-group-item list-group-item-action">Engineering</a>
                 <a th:href="@{/searchByCategory(category='Programming')}" th:classappend="${activeProgramming}? 'active'" class="list-group-item list-group-item-action">Programming</a>
