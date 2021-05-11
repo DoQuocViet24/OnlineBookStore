@@ -22,11 +22,11 @@
             <h3><label for="category">Thể loại</label></h3>
             <div class="list-group" id="category">
                 <a th:href="@{/bookshelf(category='all')}" th:classappend="${activeAll}? 'active'" class="list-group-item list-group-item-action">All</a>
-                <a th:href="@{/searchByCategory(category='Kinh doanh')}" th:classappend="${activeManagement}? 'active'" class="list-group-item list-group-item-action">Kinh doanh</a>
-                <a th:href="@{/searchByCategory(category='Viễn tưởng')}" th:classappend="${activeFiction}? 'active'" class="list-group-item list-group-item-action">Viễn tưởng</a>
-                <a th:href="@{/searchByCategory(category='Khoa học')}" th:classappend="${activeEngineering}? 'active'" class="list-group-item list-group-item-action">Khoa học</a>
-                <a th:href="@{/searchByCategory(category='Chương trình giáo dục')}" th:classappend="${activeProgramming}? 'active'" class="list-group-item list-group-item-action">Chương trình giáo dục</a>
-                <a th:href="@{/searchByCategory(category='Nghệ thuật &amp; Văn học')}" th:classappend="${activeArtsLiterature}? 'active'" class="list-group-item list-group-item-action">Nghệ thuật &amp; Văn học</a>
+                <a th:href="@{/searchByCategory(category='Managament')}" th:classappend="${activeManagement}? 'active'" class="list-group-item list-group-item-action">Managament</a>
+                <a th:href="@{/searchByCategory(category='Fiction')}" th:classappend="${activeFiction}? 'active'" class="list-group-item list-group-item-action">Fiction</a>
+                <a th:href="@{/searchByCategory(category='Engineering')}" th:classappend="${activeEngineering}? 'active'" class="list-group-item list-group-item-action">Engineering</a>
+                <a th:href="@{/searchByCategory(category='Programming')}" th:classappend="${activeProgramming}? 'active'" class="list-group-item list-group-item-action">Programming</a>
+                <a th:href="@{/searchByCategory(category='Arts &amp; Literature')}" th:classappend="${activeArtsLiterature}? 'active'" class="list-group-item list-group-item-action">Arts &amp; Literature</a>
             </div>
         </div>
         <div class="col-9">
